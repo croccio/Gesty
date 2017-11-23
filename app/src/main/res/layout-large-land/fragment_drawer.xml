@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/drawerToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fakeActionBar"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/fakeActionBar"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/menuView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:tint="@color/colorAccent"
+            android:foreground="?attr/ri"
+            android:src="@drawable/ic_menu_black_24dp" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/categoryRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/drawerToolbar" />
+
+</RelativeLayout>
