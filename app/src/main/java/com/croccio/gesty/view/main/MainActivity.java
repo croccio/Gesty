@@ -1,9 +1,9 @@
-package com.croccio.gesty.view;
+package com.croccio.gesty.view.main;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewCompat;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.croccio.gesty.R;
@@ -15,14 +15,14 @@ import butterknife.ButterKnife;
 public class MainActivity extends Activity {
 
     @BindView(R.id.drawerConteinerLayout)
-    RelativeLayout drawerConteinerLayout;
+    ViewGroup drawerConteinerLayout;
 
     @BindView(R.id.contentConteinerLayout)
-    RelativeLayout contentConteinerLayout;
+    ViewGroup contentConteinerLayout;
 
     @Nullable
     @BindView(R.id.fakeActionBar)
-    RelativeLayout fakeActionBar;
+    ViewGroup fakeActionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        loadFragment(DrawerFragment.newInstance(), getDrawerView());
+        replaceDrawerFragment(DrawerFragment.newInstance());
+
+        replaceContentFragment(ProductsListFragment.newInstance());
 
     }
 

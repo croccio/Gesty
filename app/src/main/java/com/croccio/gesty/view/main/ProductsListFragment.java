@@ -1,4 +1,4 @@
-package com.croccio.gesty.view;
+package com.croccio.gesty.view.main;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -14,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class ProductListFragment extends Fragment {
+public class ProductsListFragment extends Fragment {
 
     @BindView(R.id.productListToolbar)
     Toolbar productListToolbar;
@@ -22,11 +22,11 @@ public class ProductListFragment extends Fragment {
     RecyclerView productRecyclerView;
     Unbinder unbinder;
 
-    public ProductListFragment() {
+    public ProductsListFragment() {
     }
 
-    public static ProductListFragment newInstance() {
-        ProductListFragment fragment = new ProductListFragment();
+    public static ProductsListFragment newInstance() {
+        ProductsListFragment fragment = new ProductsListFragment();
         return fragment;
     }
 

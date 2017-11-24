@@ -1,8 +1,8 @@
 package com.croccio.gesty.view.base;
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 
 /**
  * Created by antonioscardigno on 23/11/17.
@@ -10,12 +10,41 @@ import android.view.ViewGroup;
 
 public abstract class Activity extends AppCompatActivity {
 
-    public void loadFragment(Fragment fragment, View conteiner) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .setCustomAnimations(android.support.v7.appcompat.R.anim.abc_grow_fade_in_from_bottom, android.support.v7.appcompat.R.anim.abc_shrink_fade_out_from_bottom)
-                .replace(conteiner.getId(), fragment)
-                .commitAllowingStateLoss();
+    private void addFragment(android.support.v4.app.Fragment fragment, boolean replace, View rootView) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+        fragmentTransaction.addToBackStack(fragment.getClass().getName());
+        if (replace) {
+            fragmentTransaction.replace(rootView.getId(), fragment);
+        } else {
+            fragmentTransaction.add(rootView.getId(), fragment);
+            fragmentTransaction.show(fragment);
+        }
+        fragmentTransaction.commitAllowingStateLoss();
+    }
+
+    private void addFragment(Fragment fragment, View conteiner) {
+        addFragment(fragment, false, conteiner);
+    }
+
+    private void replaceFragment(Fragment fragment, View conteiner) {
+        addFragment(fragment, true, conteiner);
+    }
+
+    public void addContentFragment(Fragment fragment) {
+        addFragment(fragment, getContentView());
+    }
+
+    public void addDrawerFragment(Fragment fragment) {
+        addFragment(fragment, getDrawerView());
+    }
+
+    public void replaceContentFragment(Fragment fragment) {
+        replaceFragment(fragment, getContentView());
+    }
+
+    public void replaceDrawerFragment(Fragment fragment) {
+        replaceFragment(fragment, getDrawerView());
     }
 
     public abstract View getDrawerView();

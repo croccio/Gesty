@@ -1,4 +1,4 @@
-package com.croccio.gesty.view;
+package com.croccio.gesty.view.main;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,17 +7,21 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.croccio.gesty.R;
 import com.croccio.gesty.view.base.Fragment;
+import com.croccio.gesty.view.handleProducts.condiment.HandleCondimentsFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
-public class DrawerFragment extends Fragment {
+public class DrawerFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
 
     @BindView(R.id.drawerToolbar)
     Toolbar drawerToolbar;
@@ -25,7 +29,12 @@ public class DrawerFragment extends Fragment {
     @BindView(R.id.categoryRecyclerView)
     RecyclerView categoryRecyclerView;
 
+    @BindView(R.id.menuView)
+    ImageView menuView;
+
     Unbinder unbinder;
+
+    private PopupMenu popup;
 
     public DrawerFragment() {
     }
@@ -50,15 +59,32 @@ public class DrawerFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        PopupMenu popup = new PopupMenu(getActivity(), menuItemView);
+        popup = new PopupMenu(getActivity(), menuView);
         MenuInflater inflate = popup.getMenuInflater();
         inflate.inflate(R.menu.menu_drawer, popup.getMenu());
-        popup.show();
+        popup.setOnMenuItemClickListener(this);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.handleProductMenuItem:
+                getAppActivity().addContentFragment(HandleCondimentsFragment.newInstance());
+                return true;
+            case R.id.settingsMenuItem:
+                return true;
+        }
+        return false;
+    }
+
+    @OnClick(R.id.menuView)
+    public void openMenu() {
+        popup.show();
     }
 }

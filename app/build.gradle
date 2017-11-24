@@ -21,6 +21,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
 
     implementation 'com.jakewharton:butterknife:8.8.1'
@@ -30,6 +31,8 @@ dependencies {
     implementation 'fr.xebia.android.freezer:freezer:2.0.6'
     provided 'fr.xebia.android.freezer:freezer-annotations:2.0.6'
     annotationProcessor 'fr.xebia.android.freezer:freezer-compiler:2.0.6'
+
+    implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
 
     compile 'com.github.hanihashemi:SlidingPaneLayout:1.0'
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/tabletCellWidth"
+    android:background="@drawable/adapter_item_background"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="Nome Condimento"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/condimentCategoryTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameTextView"
+        android:gravity="center"
+        android:text="Categoria Condimento"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/priceToAddTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/priceToRemoveTextView"
+        android:gravity="center|bottom"
+        android:layout_below="@+id/condimentCategoryTextView"
+        android:text="+0,50 €"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/priceToRemoveTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="-0,50 €"
+        android:textSize="18sp" />
+
+</RelativeLayout>

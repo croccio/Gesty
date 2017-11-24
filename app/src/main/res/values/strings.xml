@@ -1,8 +1,24 @@
 <resources>
     <string name="app_name">Gesty</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="handleProduct">Gestisci prodotti</string>
     <string name="settings">Impostazioni</string>
+    <string name="priceToAdd">+%1$f€</string>
+    <string name="priceToRemove">-%1$f€</string>
+    <string name="noCondiment">Nessun condimento. Clicca sul pulsante in basso a destra per aggiungerne uno.</string>
+    <string name="cannotLoadCondiment">C\'è stato un errore durante il caricamento dei condimenti. CLicca di nuovo per riprovare.</string>
+    <string name="condimentNameHint">Nome</string>
+    <string name="priceToAddCondimentHint">Prezzo da aggiungere (se lasciato vuoto prende quello della categoria)</string>
+    <string name="priceToAddCategoryCondimentHint">Prezzo da aggiungere</string>
+    <string name="priceToRemoveCondimentHint">Prezzo da rimuovere (se lasciato vuoto prende quello della categoria)</string>
+    <string name="priceToRemoveCategoryCondimentHint">Prezzo da rimuovere</string>
+    <string name="categoryCondimentHint">Categoria condimento</string>
+    <string name="ok">OK</string>
+    <string name="addNewCondiment">Aggiungi un nuovo condimento</string>
+    <string name="editCondiment">Modifica il condimento</string>
+    <string name="cancel">Annulla</string>
+    <string name="tryAgain">Riprova</string>
+    <string name="categoryNotFound">La categoria selezionata non è valida</string>
+    <string name="condimentSaved">Condimento salvato con successo</string>
+    <string name="condimentNotSaved">Condimento non salvato</string>
 </resources>

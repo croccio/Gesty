@@ -12,7 +12,7 @@ import butterknife.BindBool;
  * Created by antonioscardigno on 23/11/17.
  */
 
-public class Fragment extends android.support.v4.app.Fragment {
+public class DialogFragment extends android.support.v4.app.DialogFragment {
 
     protected Validator validator;
 
@@ -25,10 +25,6 @@ public class Fragment extends android.support.v4.app.Fragment {
 
         validator = new Validator(this);
         validator.setValidationListener(new ValidationListener(getContext(), this));
-    }
-
-    public Activity getAppActivity() {
-        return (Activity) getActivity();
     }
 
     public void onValidateSuccess() {
