@@ -158,7 +158,7 @@ public class CondimentDialog extends DialogFragment implements BaseController.Re
                     dismiss();
                     Snackbar.make(getView(), getString(R.string.condimentSaved), Snackbar.LENGTH_SHORT).show();
 
-                    callback.onCondimentSaved();
+                    callback.onCondimentSaved(saved);
                 }
 
                 @Override
@@ -174,7 +174,7 @@ public class CondimentDialog extends DialogFragment implements BaseController.Re
                     dismiss();
                     Snackbar.make(getView(), getString(R.string.condimentSaved), Snackbar.LENGTH_SHORT).show();
 
-                    callback.onCondimentSaved();
+                    callback.onCondimentSaved(updated);
                 }
 
                 @Override
@@ -193,14 +193,14 @@ public class CondimentDialog extends DialogFragment implements BaseController.Re
     public void addNewCategory() {
         CategoryCondimentDialog.newInstance(new CategoryCondimentDialog.Callback() {
             @Override
-            public void onCategoryCondimentSaved() {
-                loadCondimentCategory();
+            public void onCategoryCondimentSaved(CondimentCategory condimentCategory) {
+                selectCategoryEditText.addItem(condimentCategory);
             }
         }).show(getFragmentManager(), CategoryCondimentDialog.class.toString());
     }
 
     interface Callback {
-        void onCondimentSaved();
+        void onCondimentSaved(Condiment condiment);
     }
 
 }
